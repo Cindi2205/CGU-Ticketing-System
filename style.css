@@ -10,7 +10,7 @@
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     padding: 25px;
     margin-top: 40px;
-    background-image: url('background.jpg');
+    background-image: url('img/background.jpg');
     background-position: center;
     background-size: cover;
     background-attachment: fixed;

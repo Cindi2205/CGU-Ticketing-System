@@ -34,14 +34,12 @@ header {
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
-    width: 100%;
-    max-width: 1200px;
 }
 
 header h1 {
     margin: 0;
     font-size: 26px;
-    color: var(--primary);
+    color: var(--text);
 }
 
 header p {
@@ -63,7 +61,6 @@ footer {
     text-align: center;
     width: 100%;
     font-size: 13px;
-    max-width: 1200px;
 }
 
 /* Card */
@@ -74,14 +71,13 @@ footer {
     box-shadow: var(--shadow);
     margin-bottom: 25px;
     animation: fadeIn 0.3s ease;
-    width: 90%;
-    max-width: 350px;
+    width: 350px !important;
 }
 
 section#screen-films.card {
-    width: 90% !important;
-    max-width: 1200px !important;
-    min-width: unset !important;
+    width: 100% !important;
+    max-width: 750px !important;
+    min-width: 90% !important;
 }
 
 @keyframes fadeIn {
@@ -109,7 +105,6 @@ section#screen-films.card {
     cursor: pointer;
     font-weight: 500;
     transition: all 0.2s ease;
-    width: 100%;
 }
 
 .btn:hover {
@@ -146,7 +141,6 @@ select {
     color: var(--text);
     background: #00000050;
     transition: border-color 0.2s;
-    box-sizing: border-box;
 }
 
 input:focus,
@@ -177,7 +171,6 @@ select:focus {
     padding: 15px;
     background: blur;
     border-radius: var(--radius);
-    justify-content: center;
 }
 
 .filter-btn {
@@ -205,11 +198,12 @@ select:focus {
 
 /* Film list */
 .films {
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    display: flex;
+    flex-direction: row;
     gap: 16px;
+    overflow-x: auto;
     padding: 10px 0;
-    width: 100%;
+    scrollbar-width: thin;
 }
 
 .film {
@@ -219,8 +213,9 @@ select:focus {
     box-shadow: var(--shadow);
     padding: 10px;
     text-align: center;
+    flex: 0 0 auto;
+    width: 200px; 
     transition: transform 0.2s ease, box-shadow 0.2s ease;
-    width: 100%;
 }
 
 .film:hover {
@@ -245,7 +240,6 @@ select:focus {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-    width: 100%;
 }
 
 .movie-poster-section {
@@ -342,7 +336,7 @@ select:focus {
 }
 
 .btn-primary:hover {
-    background: var(--primary-hover);
+    background: var(--primary-dark);
     transform: translateY(-2px);
 }
 
@@ -490,59 +484,44 @@ select:focus {
     margin: 12px 0;
 }
 
-/* ============================ RESPONSIVE DESIGN ============================ */
+/* ============================ RESPONSIVE DESIGN UNTUK HP ============================ */
 
 /* Tablet Devices (768px - 1024px) */
-@media (min-width: 768px) and (max-width: 1024px) {
+@media (max-width: 1024px) {
     :root {
         padding: 20px;
         margin-top: 30px;
     }
     
     .card {
-        width: 85%;
-        max-width: 600px;
-        padding: 20px;
+        width: 90% !important;
+        max-width: 500px !important;
     }
     
     section#screen-films.card {
         width: 95% !important;
-        max-width: 900px !important;
+        max-width: 700px !important;
+        min-width: unset !important;
     }
     
     .films {
+        display: grid;
         grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
         gap: 15px;
+        overflow-x: visible;
+    }
+    
+    .film {
+        width: 100%;
     }
     
     .film img {
-        height: 300px;
-    }
-    
-    .movie-details-container {
-        padding: 15px;
-    }
-    
-    .movie-poster-section {
-        gap: 25px;
-    }
-    
-    .movie-details-poster img {
-        width: 220px;
-        height: 320px;
-    }
-    
-    .btn {
-        width: auto;
-    }
-    
-    .action-buttons {
-        flex-direction: row;
+        height: 280px;
     }
 }
 
 /* Mobile Devices (480px - 767px) */
-@media (min-width: 480px) and (max-width: 767px) {
+@media (max-width: 767px) {
     :root {
         padding: 15px;
         margin-top: 20px;
@@ -559,19 +538,19 @@ select:focus {
     }
     
     .card {
-        width: 95%;
-        max-width: 400px;
+        width: 95% !important;
+        max-width: 400px !important;
         padding: 20px;
-        margin-bottom: 20px;
     }
     
     section#screen-films.card {
         width: 98% !important;
         max-width: 100% !important;
+        min-width: unset !important;
     }
     
     .films {
-        grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+        grid-template-columns: repeat(2, 1fr);
         gap: 12px;
     }
     
@@ -580,7 +559,7 @@ select:focus {
     }
     
     .film img {
-        height: 250px;
+        height: 220px;
     }
     
     .film h3 {
@@ -588,7 +567,7 @@ select:focus {
     }
     
     .movie-details-container {
-        padding: 10px;
+        padding: 15px;
     }
     
     .movie-poster-section {
@@ -682,7 +661,7 @@ select:focus {
     }
     
     .card {
-        width: 100%;
+        width: 100% !important;
         padding: 15px;
         margin-bottom: 15px;
         border-radius: 8px;
@@ -703,7 +682,7 @@ select:focus {
     }
     
     .film img {
-        height: 200px;
+        height: 180px;
     }
     
     .film h3 {
@@ -714,6 +693,7 @@ select:focus {
     .genre-filter {
         padding: 10px;
         gap: 6px;
+        justify-content: center;
     }
     
     .filter-btn {
@@ -722,7 +702,7 @@ select:focus {
     }
     
     .movie-details-container {
-        padding: 5px;
+        padding: 10px;
     }
     
     .movie-poster-section {
@@ -734,8 +714,8 @@ select:focus {
     }
     
     .movie-details-poster img {
-        width: 180px;
-        height: 250px;
+        width: 160px;
+        height: 220px;
     }
     
     .movie-basic-info h2 {
@@ -830,28 +810,35 @@ select:focus {
     }
 }
 
-/* Desktop Large Screens (1025px and above) */
+/* Desktop (1025px and above) - TETAP SAMA SEPERTI SEMULA */
 @media (min-width: 1025px) {
+    /* Semua style desktop tetap menggunakan kode original Anda */
     .card {
-        width: 350px;
+        width: 350px !important;
     }
     
     section#screen-films.card {
-        width: 90% !important;
-        max-width: 1200px !important;
+        width: 100% !important;
+        max-width: 750px !important;
+        min-width: 90% !important;
     }
     
     .films {
-        grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-        gap: 20px;
-    }
-    
-    .btn {
-        width: auto;
-    }
-    
-    .action-buttons {
+        display: flex;
         flex-direction: row;
+        gap: 16px;
+        overflow-x: auto;
+        padding: 10px 0;
+        scrollbar-width: thin;
+    }
+    
+    .film {
+        width: 200px;
+        flex: 0 0 auto;
+    }
+    
+    .film img {
+        height: 350px;
     }
 }
 
@@ -881,74 +868,6 @@ select:focus {
 
     #printTicket,
     #orderAgain {
-        display: none;
-    }
-}
-
-/* Utility Classes for Responsive Design */
-.responsive-container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-    box-sizing: border-box;
-}
-
-.text-center {
-    text-align: center;
-}
-
-.text-left {
-    text-align: left;
-}
-
-.text-right {
-    text-align: right;
-}
-
-.d-flex {
-    display: flex;
-}
-
-.flex-column {
-    flex-direction: column;
-}
-
-.flex-row {
-    flex-direction: row;
-}
-
-.justify-center {
-    justify-content: center;
-}
-
-.align-center {
-    align-items: center;
-}
-
-.w-100 {
-    width: 100%;
-}
-
-.h-100 {
-    height: 100%;
-}
-
-/* Hide/Show elements based on screen size */
-.mobile-only {
-    display: none;
-}
-
-.desktop-only {
-    display: block;
-}
-
-@media (max-width: 767px) {
-    .mobile-only {
-        display: block;
-    }
-    
-    .desktop-only {
         display: none;
     }
 }

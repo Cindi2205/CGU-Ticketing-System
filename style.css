@@ -10,16 +10,12 @@
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
     padding: 25px;
     margin-top: 40px;
-    background-image: url('img/background.jpg');
-    background-position: center;
-    background-size: cover;
-    background-attachment: fixed;
+    background: url('img/background.jpg') center/cover fixed;
 }
 
 body {
     margin: 0;
     font-family: "Playfair Display', 'Times New Roman', serif";
-    background: var(--bg);
     color: var(--text);
     min-height: 100vh;
     display: flex;
@@ -28,24 +24,18 @@ body {
     justify-content: flex-start;
 }
 
-/* Header */
+/* Header & Footer */
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
+    width: 100%;
 }
 
 header h1 {
     margin: 0;
     font-size: 26px;
-    color: var(--text);
-}
-
-header p {
-    color: var(--muted);
-    font-size: 13px;
-    margin: 4px 0 0;
 }
 
 #userBadge {
@@ -61,9 +51,10 @@ footer {
     text-align: center;
     width: 100%;
     font-size: 13px;
+    margin-top: auto;
 }
 
-/* Card */
+/* Cards & Layout */
 .card {
     background: var(--card);
     border-radius: var(--radius);
@@ -80,25 +71,19 @@ section#screen-films.card {
     min-width: 90% !important;
 }
 
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(8px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-}
-
 .hidden {
     display: none;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(8px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 /* Buttons */
 .btn {
     background: var(--primary);
-    color: rgb(255, 255, 255);
+    color: white;
     border: none;
     padding: 10px 18px;
     border-radius: 8px;
@@ -116,14 +101,14 @@ section#screen-films.card {
 .btn.ghost {
     background: transparent;
     border: 1px solid var(--muted);
-    color: rgb(255, 255, 255)
+    color: white;
 }
 
 .btn.ghost:hover {
     background: #a29d9d;
 }
 
-/* Form */
+/* Forms & Inputs */
 .form-row {
     display: flex;
     flex-direction: column;
@@ -131,9 +116,8 @@ section#screen-films.card {
     margin-bottom: 16px;
 }
 
-input,
-select {
-    padding: 10px 10px;
+input, select {
+    padding: 10px;
     border: 1px solid #cfe0f5;
     border-radius: 8px;
     font-size: 14px;
@@ -143,33 +127,27 @@ select {
     transition: border-color 0.2s;
 }
 
-input:focus,
-select:focus {
+input:focus, select:focus {
     border-color: var(--primary);
     outline: none;
 }
 
-/* Texts */
-.muted {
-    color: var(--muted);
-    font-size: 14px;
+/* Text Styles */
+.muted { color: var(--muted); font-size: 14px; }
+.error { 
+    color: var(--danger); 
+    font-size: 14px; 
+    display: none; 
+    margin-top: 8px; 
 }
 
-.error {
-    color: var(--danger);
-    font-size: 14px;
-    display: none;
-    margin-top: 8px;
-}
-
-/* Genre Filter Styles */
+/* Genre Filter */
 .genre-filter {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
     margin-bottom: 20px;
     padding: 15px;
-    background: blur;
     border-radius: var(--radius);
 }
 
@@ -185,21 +163,19 @@ select:focus {
     transition: all 0.2s ease;
 }
 
-.filter-btn:hover {
+.filter-btn:hover, .filter-btn.active {
     background: var(--primary);
+    color: white;
     transform: translateY(-2px);
 }
 
 .filter-btn.active {
-    background: var(--primary);
-    color: white;
     box-shadow: 0 2px 8px rgba(37, 71, 146, 0.4);
 }
 
-/* Film list */
+/* Films Grid */
 .films {
     display: flex;
-    flex-direction: row;
     gap: 16px;
     overflow-x: auto;
     padding: 10px 0;
@@ -214,7 +190,7 @@ select:focus {
     padding: 10px;
     text-align: center;
     flex: 0 0 auto;
-    width: 200px; 
+    width: 200px;
     transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -230,27 +206,11 @@ select:focus {
     border-radius: 8px;
 }
 
-.film h3 {
-    font-size: 16px;
-    margin: 10px 0 6px;
-}
-
-/* Movie Details Screen */
+/* Movie Details */
 .movie-details-container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 20px;
-}
-
-.movie-poster-section {
-    display: flex;
-    gap: 30px;
-    align-items: flex-start;
-    margin-bottom: 30px;
-}
-
-.movie-details-poster {
-    flex-shrink: 0;
 }
 
 .movie-details-poster img {
@@ -261,22 +221,11 @@ select:focus {
     box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
 }
 
-.movie-basic-info {
-    flex: 1;
-}
-
-.movie-basic-info h2 {
-    margin: 0 0 15px 0;
-    color: var(--primary);
-    font-size: 28px;
-}
-
 .movie-meta {
     display: flex;
     gap: 12px;
     margin-bottom: 15px;
     flex-wrap: wrap;
-    align-items: center;
 }
 
 .meta-item {
@@ -286,17 +235,6 @@ select:focus {
     border-radius: 20px;
     font-size: 12px;
     font-weight: 500;
-}
-
-.meta-item.rating {
-    background: #ffd700;
-    color: #000;
-    font-weight: bold;
-}
-
-.movie-content-section {
-    border-top: 2px solid #eee;
-    padding-top: 25px;
 }
 
 .sinopsis-section h3 {
@@ -320,37 +258,7 @@ select:focus {
     margin-top: 30px;
 }
 
-.btn-primary, .btn-secondary {
-    padding: 12px 24px;
-    border: none;
-    border-radius: 8px;
-    font-size: 16px;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.btn-primary {
-    background: var(--primary);
-    color: white;
-}
-
-.btn-primary:hover {
-    background: var(--primary-dark);
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background: #f0f0f0;
-    color: var(--text);
-}
-
-.btn-secondary:hover {
-    background: #e0e0e0;
-    transform: translateY(-2px);
-}
-
-/* Kursi */
+/* Seat Selection */
 .screen {
     text-align: center;
     padding: 10px;
@@ -383,23 +291,19 @@ select:focus {
     transition: all 0.15s ease;
 }
 
-.seat:hover {
-    background: #040404;
+.seat:hover { background: #040404; }
+.seat.selected { 
+    background: var(--primary); 
+    color: white; 
+    border-color: var(--primary-hover); 
+}
+.seat.taken { 
+    background: #cbd5e1; 
+    color: #94a3b8; 
+    cursor: not-allowed; 
 }
 
-.seat.selected {
-    background: var(--primary);
-    color: white;
-    border-color: var(--primary-hover);
-}
-
-.seat.taken {
-    background: #cbd5e1;
-    color: #94a3b8;
-    cursor: not-allowed;
-}
-
-/* ---------------------------------- TAMBAHAN UNTUK PRINT TIKET --------------------------------- */
+/* Ticket Print Styles */
 .ticket-layout {
     border: 1px solid #cbd5e1;
     border-radius: var(--radius);
@@ -428,12 +332,6 @@ select:focus {
     color: var(--text);
 }
 
-.ticket-header-info p {
-    margin: 4px 0;
-    font-size: 14px;
-    font-weight: 500;
-}
-
 .muted-label {
     font-size: 15px;
     color: var(--text);
@@ -448,13 +346,10 @@ select:focus {
     border-bottom: 1px dashed #94a3b8;
 }
 
-.ticket-booking-details>div {
-    flex: 1;
-}
-
-.ticket-booking-details strong {
-    font-size: 20px;
-    color: var(--text);
+.ticket-booking-details > div { flex: 1; }
+.ticket-booking-details strong { 
+    font-size: 20px; 
+    color: var(--text); 
 }
 
 .ticket-payment-details {
@@ -484,24 +379,15 @@ select:focus {
     margin: 12px 0;
 }
 
-/* ============================ RESPONSIVE DESIGN UNTUK HP ============================ */
+/* ==================== RESPONSIVE DESIGN ==================== */
 
-/* Tablet Devices (768px - 1024px) */
+/* Tablet (768px - 1024px) */
 @media (max-width: 1024px) {
-    :root {
-        padding: 20px;
-        margin-top: 30px;
-    }
+    :root { padding: 20px; margin-top: 30px; }
     
-    .card {
+    .card, section#screen-films.card {
         width: 90% !important;
         max-width: 500px !important;
-    }
-    
-    section#screen-films.card {
-        width: 95% !important;
-        max-width: 700px !important;
-        min-width: unset !important;
     }
     
     .films {
@@ -511,348 +397,99 @@ select:focus {
         overflow-x: visible;
     }
     
-    .film {
-        width: 100%;
-    }
-    
-    .film img {
-        height: 280px;
-    }
+    .film { width: 100%; }
+    .film img { height: 280px; }
 }
 
-/* Mobile Devices (480px - 767px) */
+/* Mobile (480px - 767px) */
 @media (max-width: 767px) {
-    :root {
-        padding: 15px;
-        margin-top: 20px;
-    }
+    :root { padding: 15px; margin-top: 20px; }
     
-    header {
-        flex-direction: column;
-        gap: 15px;
-        text-align: center;
-    }
+    header { flex-direction: column; gap: 15px; text-align: center; }
+    header h1 { font-size: 22px; }
     
-    header h1 {
-        font-size: 22px;
-    }
+    .card { width: 95% !important; padding: 20px; }
+    section#screen-films.card { width: 98% !important; }
     
-    .card {
-        width: 95% !important;
-        max-width: 400px !important;
-        padding: 20px;
-    }
+    .films { grid-template-columns: repeat(2, 1fr); gap: 12px; }
+    .film img { height: 220px; }
+    .film h3 { font-size: 14px; }
     
-    section#screen-films.card {
-        width: 98% !important;
-        max-width: 100% !important;
-        min-width: unset !important;
-    }
+    .movie-details-container { padding: 15px; }
+    .movie-details-poster img { width: 200px; height: 280px; }
+    .movie-basic-info h2 { font-size: 24px; }
+    .movie-meta { justify-content: center; }
     
-    .films {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 12px;
-    }
+    .action-buttons { flex-direction: column; gap: 10px; }
+    .btn-primary, .btn-secondary { width: 100%; }
     
-    .film {
-        padding: 8px;
-    }
+    .seats { grid-template-columns: repeat(6, 1fr); gap: 5px; }
+    .seat { width: 35px; height: 35px; font-size: 12px; }
     
-    .film img {
-        height: 220px;
-    }
-    
-    .film h3 {
-        font-size: 14px;
-    }
-    
-    .movie-details-container {
-        padding: 15px;
-    }
-    
-    .movie-poster-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 20px;
-        text-align: center;
-    }
-    
-    .movie-details-poster img {
-        width: 200px;
-        height: 280px;
-    }
-    
-    .movie-basic-info h2 {
-        font-size: 24px;
-    }
-    
-    .movie-meta {
-        justify-content: center;
-    }
-    
-    .sinopsis-section p {
-        text-align: left;
-        font-size: 15px;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        gap: 10px;
-    }
-    
-    .btn-primary, .btn-secondary {
-        width: 100%;
-    }
-    
-    .seats {
-        grid-template-columns: repeat(6, 1fr);
-        gap: 5px;
-    }
-    
-    .seat {
-        width: 35px;
-        height: 35px;
-        font-size: 12px;
-    }
-    
-    .ticket-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 15px;
-    }
-    
-    .ticket-header img {
-        width: 120px;
-        height: 160px;
-        margin: 0 auto;
-    }
-    
-    .ticket-booking-details {
-        flex-direction: column;
-        gap: 15px;
-    }
+    .ticket-header { flex-direction: column; text-align: center; gap: 15px; }
+    .ticket-header img { width: 120px; height: 160px; margin: 0 auto; }
+    .ticket-booking-details { flex-direction: column; gap: 15px; }
 }
 
-/* Small Mobile Devices (320px - 479px) */
+/* Small Mobile (320px - 479px) */
 @media (max-width: 479px) {
-    :root {
-        padding: 10px;
-        margin-top: 15px;
-    }
+    :root { padding: 10px; margin-top: 15px; }
+    body { font-size: 14px; }
     
-    body {
-        font-size: 14px;
-    }
+    header { flex-direction: column; gap: 12px; }
+    header h1 { font-size: 20px; }
+    #userBadge { font-size: 12px; padding: 5px 10px; }
     
-    header {
-        flex-direction: column;
-        gap: 12px;
-        text-align: center;
-        margin-bottom: 15px;
-    }
+    .card { width: 100% !important; padding: 15px; }
+    .films { grid-template-columns: repeat(2, 1fr); gap: 10px; }
+    .film img { height: 180px; }
+    .film h3 { font-size: 13px; }
     
-    header h1 {
-        font-size: 20px;
-    }
+    .genre-filter { padding: 10px; gap: 6px; justify-content: center; }
+    .filter-btn { padding: 6px 12px; font-size: 11px; }
     
-    #userBadge {
-        font-size: 12px;
-        padding: 5px 10px;
-    }
+    .movie-details-poster img { width: 160px; height: 220px; }
+    .movie-basic-info h2 { font-size: 20px; }
+    .meta-item { font-size: 10px; padding: 4px 8px; }
     
-    .card {
-        width: 100% !important;
-        padding: 15px;
-        margin-bottom: 15px;
-        border-radius: 8px;
-    }
+    .seats { grid-template-columns: repeat(5, 1fr); gap: 4px; }
+    .seat { width: 30px; height: 30px; font-size: 10px; }
     
-    section#screen-films.card {
-        width: 100% !important;
-        padding: 15px;
-    }
-    
-    .films {
-        grid-template-columns: repeat(2, 1fr);
-        gap: 10px;
-    }
-    
-    .film {
-        padding: 6px;
-    }
-    
-    .film img {
-        height: 180px;
-    }
-    
-    .film h3 {
-        font-size: 13px;
-        margin: 8px 0 4px;
-    }
-    
-    .genre-filter {
-        padding: 10px;
-        gap: 6px;
-        justify-content: center;
-    }
-    
-    .filter-btn {
-        padding: 6px 12px;
-        font-size: 11px;
-    }
-    
-    .movie-details-container {
-        padding: 10px;
-    }
-    
-    .movie-poster-section {
-        flex-direction: column;
-        align-items: center;
-        gap: 15px;
-        text-align: center;
-        margin-bottom: 20px;
-    }
-    
-    .movie-details-poster img {
-        width: 160px;
-        height: 220px;
-    }
-    
-    .movie-basic-info h2 {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
-    
-    .movie-meta {
-        gap: 8px;
-        justify-content: center;
-    }
-    
-    .meta-item {
-        font-size: 10px;
-        padding: 4px 8px;
-    }
-    
-    .sinopsis-section h3 {
-        font-size: 18px;
-        margin-bottom: 10px;
-    }
-    
-    .sinopsis-section p {
-        font-size: 14px;
-        text-align: left;
-        line-height: 1.6;
-    }
-    
-    .action-buttons {
-        flex-direction: column;
-        gap: 8px;
-        margin-top: 20px;
-    }
-    
-    .btn-primary, .btn-secondary {
-        padding: 10px 16px;
-        font-size: 14px;
-        width: 100%;
-    }
-    
-    .seats {
-        grid-template-columns: repeat(5, 1fr);
-        gap: 4px;
-    }
-    
-    .seat {
-        width: 30px;
-        height: 30px;
-        font-size: 10px;
-        border-radius: 6px;
-    }
-    
-    .screen {
-        font-size: 11px;
-        padding: 8px;
-    }
-    
-    .ticket-layout {
-        padding: 15px;
-    }
-    
-    .ticket-header {
-        flex-direction: column;
-        text-align: center;
-        gap: 12px;
-    }
-    
-    .ticket-header img {
-        width: 100px;
-        height: 140px;
-    }
-    
-    .ticket-header-info h3 {
-        font-size: 18px;
-    }
-    
-    .ticket-booking-details {
-        flex-direction: column;
-        gap: 12px;
-    }
-    
-    .ticket-booking-details strong {
-        font-size: 16px;
-    }
-    
-    .ticket-payment-details p {
-        font-size: 13px;
-    }
-    
-    .ticket-payment-details p.total strong {
-        font-size: 18px;
-    }
+    .ticket-layout { padding: 15px; }
+    .ticket-header img { width: 100px; height: 140px; }
+    .ticket-header-info h3 { font-size: 18px; }
+    .ticket-booking-details strong { font-size: 16px; }
 }
 
-/* Desktop (1025px and above) - TETAP SAMA SEPERTI SEMULA */
+/* Desktop (1025px+) */
 @media (min-width: 1025px) {
-    /* Semua style desktop tetap menggunakan kode original Anda */
-    .card {
-        width: 350px !important;
-    }
-    
-    section#screen-films.card {
-        width: 100% !important;
-        max-width: 750px !important;
-        min-width: 90% !important;
+    .card { width: 350px !important; }
+    section#screen-films.card { 
+        width: 100% !important; 
+        max-width: 750px !important; 
+        min-width: 90% !important; 
     }
     
     .films {
         display: flex;
-        flex-direction: row;
         gap: 16px;
         overflow-x: auto;
         padding: 10px 0;
-        scrollbar-width: thin;
     }
     
-    .film {
-        width: 200px;
-        flex: 0 0 auto;
-    }
-    
-    .film img {
-        height: 350px;
-    }
+    .film { width: 200px; flex: 0 0 auto; }
+    .film img { height: 350px; }
 }
 
 /* Print Styles */
 @media print {
-    body * {
-        visibility: hidden;
-    }
-
+    body * { visibility: hidden; }
+    
     #screen-print-ticket,
     #screen-print-ticket * {
         visibility: visible;
     }
-
+    
     #screen-print-ticket {
         display: block !important;
         position: absolute;
@@ -865,9 +502,7 @@ select:focus {
         box-shadow: none;
         border-radius: 0;
     }
-
+    
     #printTicket,
-    #orderAgain {
-        display: none;
-    }
+    #orderAgain { display: none; }
 }

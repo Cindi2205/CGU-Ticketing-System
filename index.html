@@ -1,19 +1,16 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="id">
-
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>CGU Cinema</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <div class="app">
         <header>
-            <div>
-                <h1>CGU — Ticket Order</h1>
-            </div>
+            <h1>CGU — Ticket Order</h1>
             <div id="userBadge" class="muted">Belum login</div>
         </header>
 
@@ -21,22 +18,21 @@
         <section id="screen-login" class="card">
             <h2>Login / Masuk</h2>
             <div class="form-row">
-                <input id="inp-username" placeholder="Username" />
-                <input id="inp-password" type="password" placeholder="Password" />
+                <input id="inp-username" placeholder="Username">
+                <input id="inp-password" type="password" placeholder="Password">
             </div>
-            <div style="display:flex;gap:8px">
+            <div class="button-group">
                 <button class="btn" id="btn-login">Login</button>
                 <button class="btn ghost" id="btn-guest">Masuk sebagai Guest</button>
             </div>
             <div id="login-error" class="error">Login gagal — username atau password salah.</div>
         </section>
 
-        <!-- Film -->
+        <!-- Film Selection -->
         <section id="screen-films" class="card hidden">
             <h2>Now Showing In Cinemas</h2>
-
-             <div class="genre-filter">
-                <button class="filter-btn active" data-genre="all">All Genres</button>
+            <div class="genre-filter">
+                <button class="filter-btn active" data-genre="all">All</button>
                 <button class="filter-btn" data-genre="Action">Action</button>
                 <button class="filter-btn" data-genre="Adventure">Adventure</button>
                 <button class="filter-btn" data-genre="Sci-Fi">Sci-Fi</button>
@@ -48,36 +44,35 @@
                 <button class="filter-btn" data-genre="Horror">Horror</button>
                 <button class="filter-btn" data-genre="Documentary">Documentary</button>
             </div>
-
             <div class="films" id="filmsContainer"></div>
         </section>
 
         <!-- Movie Details -->
         <section id="screen-movie-details" class="card hidden">
-        <div class="movie-details-container">
-         <div class="movie-details-poster">
-                <img id="detail-poster" src="" alt="Movie Poster">
-         </div>
-        <div class="movie-details-info">
-            <h2 id="detail-title">Judul Film</h2>
-            <div class="movie-meta">
-                <span class="meta-item" id="detail-genre">Genre</span>
-                <span class="meta-item" id="detail-duration">Duration</span>
-                <span class="meta-item" id="detail-rating">Rating</span>
-            </div>
-            <div class="sinopsis-section">
-                <h3>Sinopsis</h3>
-                <p id="detail-sinopsis">Sinopsis film akan muncul di sini...</p>
-            </div>
-            <div class="action-buttons">
-                <button class="btn" id="btn-select-seats">Choose Seat</button>
-                <button class="btn ghost" id="btn-back-to-films">Back To Film</button>
+            <div class="movie-details-container">
+                <div class="movie-details-poster">
+                    <img id="detail-poster" src="" alt="Movie Poster">
                 </div>
-             </div>
-         </div>
+                <div class="movie-details-info">
+                    <h2 id="detail-title">Judul Film</h2>
+                    <div class="movie-meta">
+                        <span id="detail-genre">Genre</span>
+                        <span id="detail-duration">Duration</span>
+                        <span id="detail-rating">Rating</span>
+                    </div>
+                    <div class="sinopsis-section">
+                        <h3>Sinopsis</h3>
+                        <p id="detail-sinopsis">Sinopsis film akan muncul di sini...</p>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="btn" id="btn-select-seats">Choose Seat</button>
+                        <button class="btn ghost" id="btn-back-to-films">Back To Film</button>
+                    </div>
+                </div>
+            </div>
         </section>
 
-        <!-- Kursi -->
+        <!-- Seat Selection -->
         <section id="screen-seats" class="card hidden">
             <h2>Pilih Kursi — <span id="movie-title"></span></h2>
             <div class="screen">LAYAR</div>
@@ -89,7 +84,7 @@
             <div id="seat-error" class="error"></div>
         </section>
 
-        <!-- Pembayaran -->
+        <!-- Payment -->
         <section id="screen-payment" class="card hidden">
             <h2>Pembayaran</h2>
             <p>Film: <strong id="pay-film"></strong></p>
@@ -104,7 +99,7 @@
             <div id="pay-status" class="muted"></div>
         </section>
 
-        <!--Ringkasan Tiket -->
+        <!-- Ticket Summary -->
         <section id="screen-ticket" class="card hidden">
             <h2>Ringkasan Tiket</h2>
             <p>Film: <strong id="ticketMovieTitle"></strong></p>
@@ -116,17 +111,15 @@
             <button class="btn ghost" id="orderAgain">Pesan Lagi</button>
         </section>
 
-        <!-------------------------------------------- TAMBAHAN UNTUK PRINT TIKET --------------------------------------------------------------- -->
-        <!-- Print Tiket -->
+        <!-- Print Ticket -->
         <section id="screen-print-ticket" class="card hidden">
             <div class="ticket-layout">
                 <div class="ticket-header">
-                    <img id="ticket-poster" src="" alt="Movie Poster" />
+                    <img id="ticket-poster" src="" alt="Movie Poster">
                     <div class="ticket-header-info">
                         <h3 id="ticket-title">Judul Film</h3>
                     </div>
                 </div>
-
                 <div class="ticket-booking-details">
                     <div>
                         <span class="muted-label">Jumlah Tiket</span>
@@ -137,7 +130,6 @@
                         <strong id="ticket-seats"></strong>
                     </div>
                 </div>
-
                 <div class="ticket-payment-details">
                     <hr>
                     <p>
@@ -155,15 +147,13 @@
                     </p>
                 </div>
             </div>
-            <button class="btn" id="orderLagi" style="margin-top: 20px;">Pesan Lagi</button>
-            <button class="btn" id="Selesai" style="margin-top: 20px;">Selesai</button>
-                <div id="screen-exit"></div>
+            <button class="btn" id="orderLagi">Pesan Lagi</button>
+            <button class="btn" id="Selesai">Selesai</button>
         </section>
-        <!-------------------------------------------- TAMBAHAN UNTUK PRINT TIKET --------------------------------------------------------------- -->
 
         <footer>MADE BY GROUP 1</footer>
 
         <script src="script.js"></script>
+    </div>
 </body>
-
 </html>
